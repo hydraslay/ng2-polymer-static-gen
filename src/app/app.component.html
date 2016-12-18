@@ -1,0 +1,8 @@
+<h1>
+  {{title}}
+</h1>
+<input [(ngModel)]="myValue">
+
+<button (click)="generateCode($event)">Generate Code</button>
+<button  (click)="selectText()">select code</button>
+<div id="divCode" class="code">{{sourceCode}}</div>

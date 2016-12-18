@@ -1,0 +1,9 @@
+.code{
+    margin: 16px;
+  max-width: 1000px;
+  border-color:black; 
+  white-space: pre-line;
+  color: mediumseagreen;
+  background: black;
+  font-size: 13px;
+}
