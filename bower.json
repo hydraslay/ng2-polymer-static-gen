@@ -1,0 +1,32 @@
+{
+  "name": "my-project",
+  "description": "test webpack",
+  "main": "",
+  "authors": [
+    "xvkai2010@gmail.com <xvkai2010@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "paper-elements": "^1.0.7",
+    "vaadin-combo-box": "^1.1.5",
+    "iron-icons": "^1.2.0",
+    "vaadin-grid": "^1.2.1",
+    "vaadin-upload": "^1.1.1",
+    "vaadin-date-picker": "^1.2.0",
+    "paper-tabs": "^1.7.0",
+    "paper-toolbar": "^1.1.7",
+    "iron-pages": "^1.0.8",
+    "l2t-context-menu": "^1.0.4",
+    "paper-listbox": "^1.1.2",
+    "paper-tooltip": "^1.1.3"
+  }
+}

@@ -1,0 +1,126 @@
+<!--
+A material design menu bar in Polymer.
+
+Example:
+
+    <paper-menubar></paper-menubar>
+
+@demo
+-->
+<dom-module id="paper-menubar">
+
+  <style>
+    :host {
+      display: inline-block;
+      font-family: 'Roboto', 'Noto', sans-serif;
+      background-color: white;
+      font-size: 14px;
+
+      width: 100%;
+      @apply(--shadow-elevation-2dp);
+    }
+    .container{
+      width: 100%;
+
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap:wrap;
+      -ms-flex-wrap:wrap;
+      flex-wrap:wrap;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+    }
+    .content ::content > * {
+      display: inline-block;
+      margin: 5px 10px 3px;
+    }
+    .content ::content > a {
+      border: 1px solid #fff;
+      background: #fff;
+      display: inline-block;
+      position: relative;
+
+      height: 1em;
+      display: inline-block;
+      outline: none;
+      padding: 3px 7px 5px 7px;
+      color: var(--primary-text-color);
+      text-decoration: none;
+
+      cursor: pointer;
+    }
+    .content ::content > a:focus,
+    .content ::content > a:hover {
+      background: var(--google-grey-300);
+    }
+
+    .content.content-right {
+      text-align: right;
+    }
+  </style>
+
+  <template>
+    <div class="container">
+
+      <div class="content">
+        <content select=":not([right])"></content>
+      </div>
+      <div class="content content-right">
+        <content select="[right]"></content>
+      </div>
+
+    </div>
+  </template>
+
+
+  <script>
+
+    Polymer({
+      is: 'paper-menubar',
+      behaviors: [
+      Polymer.IronMenubarBehavior
+      ],
+      attached: function() {
+        var content = Polymer.dom(this.$.container).querySelectorAll('content');
+        var nodes = [];
+        for(c in content){
+          nodes = nodes.concat(Polymer.dom(content[c]).getDistributedNodes());
+        }
+        var menuBar = this;
+
+        for (n in nodes){
+          var node = nodes[n];
+          if(node.nodeName.toLowerCase() == 'paper-menubar-item'){
+            node.addEventListener('paper-menubar-item-closed', function(){
+              menuBar.selected = null
+            });
+          }
+
+        }
+      },
+      ready: function(){
+        this.selectedAttribute = "selected";
+
+        var menuBar = this;
+        window.document.addEventListener('click', function(){
+          menuBar.activateEvent = 'mouseover';
+        })
+
+        this.addEventListener('iron-select', function(e){
+          setTimeout(function(){
+            if(menuBar.activateEvent != 'mouseover')
+            menuBar.activateEvent = 'mouseover';
+          });
+        });
+      }
+
+
+
+    });
+
+  </script>
+</dom-module>

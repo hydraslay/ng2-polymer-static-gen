@@ -10,3 +10,7 @@ if (environment.production) {
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);
+
+// document.addEventListener('WebComponentsReady', () => {
+//   platformBrowserDynamic().bootstrapModule(AppModule)
+// });

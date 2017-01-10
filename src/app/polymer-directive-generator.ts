@@ -70,7 +70,7 @@ export class PolymerDirectiveGenerator {
             selector: name,
             outputs: propertiesWithNotify.map(eventNameForProperty),
             host: propertiesWithNotify.reduce((hostBindings, property) => {
-                hostBindings[`(${Polymer.CaseMap.camelToDashCase(property)}-changed)`] = `_emitChangeEvent('${property}', $event);`;
+                hostBindings[`(${window['Polymer'].CaseMap.camelToDashCase(property)}-changed)`] = `_emitChangeEvent('${property}', $event);`;
                 hostBindingsD = hostBindings;
                 return hostBindings;
             }, {})
@@ -197,7 +197,7 @@ export class PolymerDirectiveGenerator {
             selector: name,
             inputs: arrayAndObjectProperties,
             host: arrayAndObjectProperties.reduce((hostBindings, property) => {
-                hostBindings[`(${Polymer.CaseMap.camelToDashCase(property)}-changed)`] = `_setValueFromElement('${property}', $event);`;
+                hostBindings[`(${window['Polymer'].CaseMap.camelToDashCase(property)}-changed)`] = `_setValueFromElement('${property}', $event);`;
                 hostBindingsD = hostBindings;
                 return hostBindings;
             }, {})
