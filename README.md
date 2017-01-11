@@ -8,8 +8,8 @@ There is already some elements that have been generated [here](https://github.co
 
 1. Install all dependencies.
 
-`npm install`
-`bower install`
+`npm install
+bower install`
 
 2. Check src/index.html and bower.json if there is already including the polymer element you want.
   If not, add them just like the way you use in your app.
