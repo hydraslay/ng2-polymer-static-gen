@@ -25,6 +25,8 @@ There is already some elements that have been generated [here](https://github.co
  `ng serve`
 
 4. See "http://localhost:4200/" , input the name of the element and press button "Generate Code".
+ - If the include is not correct, there may be a error message looks like
+   `The Polymer element "xxxx" has not been registered....`
 
 5. Copy the code to save a file named "xxxxx.directives.ts", just like the first line suggested.
 6. Include the directive file to your module.ts.
